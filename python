@@ -146,5 +146,148 @@ print(p1.age)
 
 
 
+class person:
+        def __init__(self, name, age):
+                self.name=name
+                self.age=age
+        def myfunc(self):
+                print(self.name)
+p1= person("john", 36)
+p1.myfunc()
+
+
+class emp:
+        empCount = 0
+        def __init__(self, name, dept, salary):
+                self.name = name
+                self.dept = dept
+                self.salary = salary
+                emp.empCount += 1
+        def displaycount(self):
+                print ("total employee %d" % emp.empCount)
+        def displayemp(self):
+                print ("name :",self.name, ",dept:",self.dept,", salary :",self.salary)
+emp1=emp("praveen", "mech", 1500000)
+emp2=emp("mani", "it", 1000)
+emp1.displayemp()
+emp2.displayemp()
+
+
+
+
+class garbage:
+        def __init__(self, x=1,y=0):
+                self.x =x
+                self.y =y
+        def __del__(self):
+                class_name = self.__class__.__name__
+                print(class_name, "destroyed")
+pt1=garbage()
+pt2=pt1
+pt3=pt2
+print(id(pt1),id(pt2),id(pt3))
+del pt1
+del pt2
+del pt3
+
+
+class parent:
+        a = 10
+        b = 100
+
+class child(parent):
+        x=6
+g = child()
+print(g.a)
+
+
+class emp:
+        num_emp=0
+        raise_amount=1.04
+        def __init__(self, first, last, sal):
+                self.first=first
+                self.last=last
+                self.sal=sal
+                self.email=first + '.' + last + '@company.com'
+                emp.num_emp += 1
+        def fullname (self):
+                return '{} {}'.format(self.first, self.last)
+        def apply_raise (self):
+                self.sal=int(self.sal * raise_amount)
+class dev(emp):
+        pass
+
+emp_1=dev('praveen','devops','102666')
+print(emp_1.email)
+
+
+
+class parent:                            #overriding
+        def method(self):
+                print("praveen")
+class child(parent):
+        def method(self):
+                print("kumar")
+i=child()
+i.method()
+
+
+
+
+class justcounter:                #data hiding
+        __secretCount = 0
+        def count(self):
+                self.__secretCount += 1
+                print(self.__secretCount)
+
+counter = justcounter()
+counter.count()
+counter.count()
+print(counter._justcounter__secretCount)
+
+
+
+class myclass:
+        __hiddenVar = 0
+        def add(self, increment):
+                self.__hiddenVar += increment
+                print(self.__hiddenVar)
+myobject = myclass()
+myobject.add(3)
+myobject.add(8)
+print(myobject._myclass__hiddenVar)
+
+
+
+import re
+pattern = 'this'
+text = 'does this text match the pattern?'
+match = re.search(pattern, text)
+s = match.start()
+e = match.end()
+print('Found "%s" in "%s" from %d to %d ("%s")' % (match.re.pattern, match.string, s, e, text[s:e]))
+
+
+
+import re
+line = "cats are smarter than dogs"
+
+matchObj = re.match(r'(.*) are (.*?) .*', line, re.M|re.I)
+if matchObj:
+        print("matchObj.group() : ", matchObj.group())
+        print("matchObj.group(1) : ",matchObj.group(1))
+        print("matchObj.group(2) : ",matchObj.group(2))
+else:
+        print("no match")
+
+
+
+
+
+
+
+
+
+
 
 
