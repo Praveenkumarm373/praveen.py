@@ -1,0 +1,100 @@
+!/usr/bin/python3.7
+
+#a = 3
+#b = 4
+#c = "praveen"
+#if(a>b):
+#       print (a)
+#else:
+#       print (b)
+#       print (c)
+
+
+#v = -12
+#if v:
+#       print ("1 - correct expersion")
+#       print (v)
+#else:
+#       print ("1 - wrong expersion")
+#       print (v)
+#
+#print ("close the program")
+
+
+#num=int(input("enter number"))
+#if num%2==0:
+#       if num%3==0:
+#               print ("divisible by 3 and 2")
+#       else:
+#               print ("divisible by 2 not 3")
+#else:
+#       if num%3==0:
+#               print ("divisible by 3 not 2")
+#       else:
+#               print ("not divisible by 3 and 2")
+
+
+
+#def main():
+        #use a for loop over a collection
+#       months = ["jan","feb","mar"]
+#       for m in months:
+#               print(m)
+#if __name__=="__main__":
+#       main()
+
+
+
+i=2
+while(i < 100):
+        j=2
+        while(j <= (i/j)):
+                if not(i%j): break
+                j = j+1
+        if (j > i/j):
+                print(i," is prime")
+        i = i+1
+
+
+import time;
+t=time.time()
+print(t)
+
+
+from datetime import date
+from datetime import time
+from datetime import datetime
+def main():
+        today=datetime.now()
+        #print (today)
+        #t=datetime.time(datetime.now())
+        #print(t)
+        wd=date.weekday(today)
+        days=["monday","tuesday","wed","thur","fri","sat","sun"]
+        print("today is %d" %wd )
+        print("which is a " + days[wd])
+
+main()
+
+
+#def main(srt):
+#       print(srt)
+#       return
+#
+#main("praveen kumar")
+
+
+def main(a):
+        a.append([1,2,3,4]);
+        print(a)
+        return
+
+a=[6,7,8,9]
+main(a)
+
+
+
+
+
+
+
