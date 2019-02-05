@@ -356,6 +356,53 @@ db.close()
 
 
 
+#!/usr/bin/python           # This is server.py file
+
+import socket               # Import socket module
+
+s = socket.socket()         # Create a socket object
+host = socket.gethostname() # Get local machine name
+port = 12345                # Reserve a port for your service.
+s.bind((host, port))        # Bind to the port
+
+s.listen(5)                 # Now wait for client connection.
+while True:
+   c, addr = s.accept()     # Establish connection with client.
+   print 'Got connection from', addr
+   c.send('Thank you for connecting')
+   c.close()                # Close the connection
+   
+   
+   
+   
+   #!/usr/bin/python           # This is client.py file
+
+import socket               # Import socket module
+
+s = socket.socket()         # Create a socket object
+host = socket.gethostname() # Get local machine name
+port = 12345                # Reserve a port for your service.
+
+s.connect((host, port))
+print s.recv(1024)
+s.close()                     # Close the socket when done
+
+
+
+
+
+
+import smtplib
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.ehlo()
+server.starttls()
+server.login("praveenkumarm373@gmail.com", "chokkankadu")
+text = "praveen kumar"
+server.sendmail("praveenkumarm373@gmail.com","praveenkumarm1105@gmail.com", text)
+server.quit()
+
+print("send")
+
 
 
 
