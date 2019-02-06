@@ -666,6 +666,50 @@ def createXML(filename):
 createXML("test1.xml")
 
 
+#start 
+
+<?xml version="1.0"?>
+<company>
+        <name>Zippyops Consulting Service</name>
+        <staff id="1001">
+                <nickname>Charlie</nickname>
+                <salary>100,000</salary>
+        </staff>
+        <staff id="1002">
+                <nickname>praveen</nickname>
+                <salary>200,000</salary>
+        </staff>
+        <staff id="1003">
+                <nickname>nik</nickname>
+                <salary>300,000</salary>
+        </staff>
+</company>
+
+
+
+
+
+from xml.dom import minidom
+doc = minidom.parse("xml.xml")
+
+name = doc.getElementsByTagName("name")[0]
+print(name.firstChild.data)
+staffs = doc.getElementsByTagName("staff")
+for staff in staffs:
+        sid = staff.getAttribute("id")
+        nickname = staff.getElementsByTagName("nickname")[0]
+        salary = staff.getElementsByTagName("salary")[0]
+        print("id:%s, nickname:%s, salary:%s" % (sid, nickname.firstChild.data, salary.firstChild.data))
+
+#end
+
+
+
+
+
+
+
+
 
 
 
