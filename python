@@ -608,3 +608,72 @@ c = raw_input("waiting for thread to return..\n")
 
 
 
+
+import threading
+import time
+
+def worker():
+        print threading.currentThread().getName(), 'Starting'
+        time.sleep(2)
+        print threading.currentThread().getName(), 'Exiting'
+def my_service():
+        print threading.currentThread().getName(), 'Starting'
+        time.sleep(2)
+        print threading.currentThread().getName(), 'Exiting'
+t = threading.Thread(name='my_service', target=my_service)
+w = threading.Thread(name='worker', target=worker)
+w2 = threading.Thread(target=worker)
+
+w.start()
+w2.start()
+t.start()
+
+
+
+
+
+import xml.etree.ElementTree as xml
+
+def createXML(filename):
+        root = xml.Element("users")
+        children1 = xml.Element("user")
+        root.append(children1)
+
+        tree = xml.ElementTree(root)
+        with open(filename, "wb") as fh:
+                tree.write(fh)
+createXML("test.xml")
+
+
+
+
+
+import xml.etree.ElementTree as xml
+
+def createXML(filename):
+        root = xml.Element("users")
+        children1 = xml.Element("user")
+        root.append(children1)
+
+        userId1 = xml.SubElement(children1, "id")
+        userId1.text = "555"
+
+        userId1 = xml.SubElement(children1, "name")
+        userId1.text = "zippyops"
+        tree = xml.ElementTree(root)
+        with open(filename, "wb") as fh:
+                tree.write(fh)
+createXML("test1.xml")
+
+
+
+
+
+
+
+
+
+
+
+
+
