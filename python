@@ -397,7 +397,7 @@ server = smtplib.SMTP('smtp.gmail.com', 587)
 server.ehlo()
 server.starttls()
 server.login("praveenkumarm373@gmail.com", "chokkankadu")
-text = "praveen kumar"
+text = "Good Morning...."
 server.sendmail("praveenkumarm373@gmail.com","praveenkumarm1105@gmail.com", text)
 server.quit()
 
@@ -407,6 +407,202 @@ print("send")
 
 
 
+import smtplib
+
+message = """From: From Person <praveenkumarm373@gmail.com>
+To: To Person <praveenkumarm373@gmail.com>
+MIME-Version: 1.0
+Content-type: text/html
+Subject: SMTP HTML e-mail test
+
+This is an e-mail message to be sent in HTML format
+
+<b>This is HTML message.</b>
+<h1>This is headline.</h1>
+"""
+
+try:
+   smtpObj = smtplib.SMTP('smtp.gmail.com', 587)
+   smtpObj.ehlo()
+   smtpObj.starttls()
+   smtpObj.login("praveenkumarm373@gmail.com", "chokkankadu")
+   smtpObj.sendmail("praveenkumarm373@gmail.com", "praveenkumarm1105@gmail.com", message)
+   smtpObj.quit()
+   print("Successfully sent email")
+except SMTPException:
+   print("Error: unable to send email")
+
+
+
+
+import smtplib
+
+message = """From: From Person <praveenkumarm373@gmail.com>
+To: To Person <praveenkumarm373@gmail.com>
+MIME-Version: 1.0
+Content-type: text/html
+Subject: SMTP HTML e-mail test
+
+This is an e-mail message to be sent in HTML format
+
+<b>This is HTML message.</b>
+<h1>This is headline.</h1>
+"""
+
+try:
+   smtpObj = smtplib.SMTP('smtp.gmail.com', 587)
+
+   smtpObj.ehlo()
+   smtpObj.starttls()
+   smtpObj.login("praveenkumarm373@gmail.com", "chokkankadu")
+   smtpObj.sendmail("praveenkumarm373@gmail.com", "praveenkumarm1105@gmail.com", message)
+   smtpObj.quit()
+   print("Successfully sent email")
+except SMTPException:
+   print("Error: unable to send email")
+   
+   
+   
+   
+   
+import smtplib
+import base64
+
+filename = "/root/p2.py"
+
+# Read a file and encode it into base64 format
+fo = open(filename, "rb")
+filecontent = fo.read()
+encodedcontent = base64.b64encode(filecontent)  # base64
+
+sender = 'praveenkumarm373@gmail.com'
+reciever = 'praveenkumarm1105@gmail.com'
+
+marker = "AUNIQUEMARKER"
+
+body ="""
+This is a test email to send an attachement.
+"""
+# Define the main headers.
+part1 = """From: From Person <praveenkumarm373@gmail.com>
+To: To Person <praveenkumarm1105@gmail.com>
+Subject: Sending Attachement
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=%s
+--%s
+""" % (marker, marker)
+
+# Define the message action
+part2 = """Content-Type: text/plain
+Content-Transfer-Encoding:8bit
+
+%s
+--%s
+""" % (body,marker)
+# Define the attachment section
+part3 = """Content-Type: multipart/mixed; name=\"%s\"
+Content-Transfer-Encoding:base64
+Content-Disposition: attachment; filename=%s
+
+%s
+--%s--
+""" %(filename, filename, encodedcontent, marker)
+message = part1 + part2 + part3
+
+try:
+   smtpObj = smtplib.SMTP('smtp.gmail.com', 587)
+   smtpObj.ehlo()
+   smtpObj.starttls()
+   smtpObj.login("praveenkumarm373@gmail.com", "chokkankadu")
+   smtpObj.sendmail("praveenkumarm373@gmail.com", "praveenkumarm1105@gmail.com", message)
+   print "Successfully sent email"
+except Exception:
+   print "Error: unable to send email"
+
+
+
+
+
+import thread
+import time
+
+# Define a function for the thread
+def print_time( threadName, delay):
+   count = 0
+   while count < 5:
+      time.sleep(delay)
+      count += 1
+      print "%s: %s" % ( threadName, time.ctime(time.time()) )
+
+# Create two threads as follows
+try:
+   thread.start_new_thread( print_time, ("Thread-1", 2, ) )
+   thread.start_new_thread( print_time, ("Thread-2", 4, ) )
+except:
+   print "Error: unable to start thread"
+
+while 1:
+   pass
+   
+   
+   
+
+import threading
+import time
+
+exitFlag = 0
+
+class myThread (threading.Thread):
+   def __init__(self, threadID, name, counter):
+      threading.Thread.__init__(self)
+      self.threadID = threadID
+      self.name = name
+      self.counter = counter
+   def run(self):
+      print "Starting " + self.name
+      print_time(self.name, 5, self.counter)
+      print "Exiting " + self.name
+
+def print_time(threadName, counter, delay):
+   while counter:
+      if exitFlag:
+         threadName.exit()
+      time.sleep(delay)
+      print "%s: %s" % (threadName, time.ctime(time.time()))
+      counter -= 1
+
+# Create new threads
+thread1 = myThread(1, "Thread-1", 1)
+thread2 = myThread(2, "Thread-2", 2)
+
+# Start new Threads
+thread1.start()
+thread2.start()
+
+print "Exiting Main Thread"
+
+
+
+
+
+from thread import start_new_thread
+
+threadId = 1
+
+def factorial(n):
+        global threadId
+        if n< 1:
+                print "%s: %d" % ("Thread", threadId )
+                threadId += 1
+                return 1
+        else:
+                returnNumber = n * factorial( n - 1 )
+                print(str(n) + '! = ' + str(returnNumber))
+                return returnNumber
+start_new_thread(factorial,(5, ))
+start_new_thread(factorial,(4, ))
+
+c = raw_input("waiting for thread to return..\n")
 
 
 
