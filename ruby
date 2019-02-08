@@ -308,6 +308,243 @@ puts result
 
 
 
+x = 1
+unless x>=2
+        puts "x is less than 2"
+else
+        puts "x is greater than 2"
+end
+
+
+Bankbalance = 255
+if Bankbalance > 250
+        puts "I' will have Briyani!"
+else
+        puts "I' will have curd rice :("
+end
+
+
+
+def even(v)
+        if v % 2 == 0
+                puts "#{v} is even"
+        else
+                puts "#{v} is odd"
+        end
+end
+
+even(2)
+
+
+
+
+
+
+
+$age = 15
+case $age
+when 0 .. 3
+        puts "baby"
+when 4 .. 7
+        puts "little child"
+when 7 .. 12
+        puts "child"
+when 13 .. 18
+        puts "youth"
+else
+        puts "adult"
+end
+
+
+
+
+AccBalance = 13
+if (AccBalance < 1000)
+        puts ("Close Account")
+elsif (AccBalance > 1000
+        puts "Please find a Europe tour" + "cruise package in your mailbox"
+else
+        puts "we love having you with us"
+end
+
+
+
+
+def get_name
+        name = ""
+        loop do
+                print "Enter your name :"
+                name = gets.chomp
+                if name.length >= 2 && name.index(/\d/)
+                        break
+                else
+                        puts "name must be longer and atleast 2 character "
+                end
+        end
+        return name
+end
+
+name = get_name()
+puts "HI #{name}"
+
+
+
+
+
+for i in 0..5
+   if i > 2 then
+      break
+   end
+   puts "Value of local variable is #{i}"
+end
+
+
+
+def zippy
+val1 = 61
+val2 = 55
+return val1, val2
+puts "hello zippy"
+end
+value = zippy
+puts value
+
+
+
+
+
+class Gayu
+def jeri
+puts "best"
+end
+alias_method :orig_bethe1, :jeri
+def jeri
+puts "every day"
+orig_bethe1
+end
+end
+gayu = Gayu.new
+gayu.jeri
+
+
+
+def test
+puts "you are in the mthod"
+yield
+puts "you are again back to the method"
+yield
+end
+test {puts "you are in the block"}
+
+
+
+
+def test
+yield 5
+puts "you are in meth"
+yield 100
+end
+test{|i| puts "you are in the block #{i}"}
+
+
+
+
+india_states = ["AP", "assam", "bihar", "up"]
+india_states.each do|india_states|
+puts india_states
+end
+
+
+
+BEGIN {
+puts "this is BEGIN block code"
+}
+END {
+puts "this is END block code"
+}
+puts "end block"
+
+
+
+
+def raise_and_rescue
+        begin
+                puts 'this is before exception arise'
+                raise 'Exception Created'
+                puts 'After exception'
+        rescue
+                puts 'Finally Saved'
+        retry
+        end
+end
+raise_and_rescue
+
+
+
+def catch_and_throw(value)
+        puts value
+        a = readline.chomp
+        thown :value_e if a == "!"
+        return a
+        end
+catch :value_e do
+        number = catch_and_throw("Enter Number: ")
+end
+
+
+
+
+
+begin
+file = open("/root/p1.py")
+if file
+puts "file open success"
+end
+rescue
+fname = "exitant_file"
+retry
+end
+
+
+
+
+begin
+raise ' a test exception'
+rescue Exception => e
+puts e.message
+puts e.backtrace.inspect
+end
+
+
+
+
+
+def promptAndGet(prompt)
+print prompt
+res = readline.chomp
+throw :quitRequested if res == "|"
+return res
+end
+
+catch :quitRequested do
+name = promptAndGet("Name: ")
+age = promptAndGet("age: ")
+sex = promptAndGet("sex: ")
+end
+promptAndGet("Name: ")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
