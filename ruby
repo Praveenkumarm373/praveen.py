@@ -536,9 +536,57 @@ promptAndGet("Name: ")
 
 
 
+class Mammal
+def breathe
+puts "inhale and exhale"
+end
+def pp
+puts "praveen"
+end
+end
+class Cat < Mammal
+def speak
+puts "meow"
+end
+end
+i=Cat.new
+i.breathe
+i.pp
+~
 
 
 
+class Mammal
+def initialize(w,h)
+@width, @height = w, h
+end
+def getArea
+@width * @height
+end
+end
+
+class Cat < Mammal
+def getArea
+@area = @width * @height
+puts "big box area is : #@area"
+end
+end
+
+i=Cat.new(10,20)
+i.getArea
+
+
+
+
+if ((1..10) === 5)
+puts "5 lies in (1..10)"
+end
+if (('a'..'j') === 'c')
+puts "c lies in('a'..'j')"
+end
+if (('a'..'j') === 'z')
+puts "z lies in ('a'..'j')"
+end
 
 
 
